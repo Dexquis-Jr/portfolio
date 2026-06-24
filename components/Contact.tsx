@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 
-export default function Contact(): JSX.Element {
+export default function Contact() {
   const [sent, setSent] = useState<boolean>(false);
 
-  async function send(e: React.FormEvent<HTMLFormElement>) {
+  async function send(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     setSent(true);

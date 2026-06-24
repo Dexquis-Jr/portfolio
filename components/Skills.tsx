@@ -18,7 +18,7 @@ const skills: SkillCategory[] = [
   },
 ];
 
-export default function Skills(): JSX.Element {
+export default function Skills() {
   return (
     <section className="py-24 px-6 max-w-7xl mx-auto">
       <div className="text-center">

@@ -33,7 +33,7 @@ const projects: Project[] = [
   },
 ];
 
-export default function Projects(): JSX.Element {
+export default function Projects() {
   return (
     <section
       id="projects"
