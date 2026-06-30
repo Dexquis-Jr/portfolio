@@ -1,59 +1,63 @@
-type SkillCategory = {
-  title: string;
-  items: string[];
-};
-
-const skills: SkillCategory[] = [
-  {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-  },
-  {
-    title: "Backend",
-    items: ["Node.js", "Express", "Java", "Spring Boot", "Python", "FastAPI"],
-  },
-  {
-    title: "Base de données & Cloud",
-    items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Docker", "AWS"],
-  },
-];
+import AnimatedSection from "@/components/AnimatedSection";
 
 export default function Skills() {
+  const skills = [
+    {
+      title: "Frontend",
+      items: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+      ],
+    },
+    {
+      title: "Backend",
+      items: [
+        "Node.js",
+        "Express",
+        "Java",
+        "Spring Boot",
+        "Python",
+        "FastAPI",
+      ],
+    },
+    {
+      title: "Base de données & Cloud",
+      items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Docker", "AWS"],
+    },
+  ];
+
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="text-center">
-        <h2 className="text-5xl font-black">
-          Mes compétences
-        </h2>
+    <AnimatedSection id="skills">
+      <div className="container-wrapper">
+        <div className="section-header">
+          <p className="section-label">Compétences</p>
+          <h2 className="section-heading">Mes compétences</h2>
+          <p className="section-description">
+            Technologies que j&apos;utilise pour construire des solutions
+            modernes et scalables.
+          </p>
+        </div>
 
-        <p className="text-gray-400 mt-4">
-          Technologies que j'utilise pour construire des solutions modernes
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-3 gap-8 mt-16">
-        {skills.map((skill: SkillCategory) => (
-          <div
-            key={skill.title}
-            className="bg-slate-900 rounded-2xl p-8 border border-yellow-600/30 hover:border-yellow-500 transition hover:-translate-y-2"
-          >
-            <h3 className="text-2xl font-bold text-yellow-500">
-              {skill.title}
-            </h3>
-
-            <div className="flex flex-wrap gap-3 mt-6">
-              {skill.items.map((item: string) => (
-                <span
-                  key={item}
-                  className="px-4 py-2 bg-yellow-600/20 rounded-full text-yellow-300 text-sm"
-                >
-                  {item}
-                </span>
-              ))}
+        <div className="grid gap-8 md:grid-cols-3">
+          {skills.map((skill) => (
+            <div key={skill.title} className="card-container group">
+              <h3 className="text-2xl font-bold text-accent group-hover:translate-x-1 transition-transform">
+                {skill.title}
+              </h3>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {skill.items.map((item) => (
+                  <span key={item} className="tech-badge-lg">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
