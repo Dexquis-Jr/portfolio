@@ -15,7 +15,7 @@ export default function Hero() {
     const fullText = HERO_TITLE;
     let isDeleting = false;
     let charIndex = 0;
-    let timeoutId: ReturnType<typeof setTimeout>;
+    let timeoutId: number;
 
     const tick = () => {
       setDisplay(fullText.slice(0, charIndex));
