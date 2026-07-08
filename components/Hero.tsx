@@ -12,18 +12,39 @@ export default function Hero() {
   const [photoHovered, setPhotoHovered] = useState(false);
 
   useEffect(() => {
-    let index = 0;
+    const fullText = HERO_TITLE;
+    let isDeleting = false;
+    let charIndex = 0;
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-    const interval = setInterval(() => {
-      setDisplay(HERO_TITLE.slice(0, index));
-      index += 1;
+    const tick = () => {
+      setDisplay(fullText.slice(0, charIndex));
 
-      if (index > HERO_TITLE.length) {
-        clearInterval(interval);
+      if (!isDeleting) {
+        if (charIndex < fullText.length) {
+          charIndex += 1;
+        } else {
+          isDeleting = true;
+          timeoutId = window.setTimeout(tick, 1400);
+          return;
+        }
+      } else {
+        if (charIndex > 0) {
+          charIndex -= 1;
+        } else {
+          isDeleting = false;
+          timeoutId = window.setTimeout(tick, 700);
+          return;
+        }
       }
-    }, 80);
 
-    return () => clearInterval(interval);
+      const delay = isDeleting ? 45 : 90;
+      timeoutId = window.setTimeout(tick, delay);
+    };
+
+    timeoutId = window.setTimeout(tick, 600);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
@@ -49,7 +70,7 @@ export default function Hero() {
             <p className="text-lg text-muted leading-relaxed max-w-2xl">
               Je conçois des applications modernes, performantes et intelligentes
               avec les technologies web actuelles.
-            </p>
+            </p> <br />
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a href="#projects" className="btn-primary text-center">
@@ -63,7 +84,7 @@ export default function Hero() {
               >
                 Télécharger CV
               </a>
-            </div>
+            </div> <br />
 
             <div className="flex gap-4 pt-4">
               <a
@@ -108,9 +129,8 @@ export default function Hero() {
                 alt={`Photo de ${siteConfig.name}`}
                 fill
                 sizes="(max-width: 768px) 288px, 320px"
-                className={`relative object-cover rounded-3xl border-2 border-yellow-500/30 shadow-2xl transition-all duration-700 ${
-                  photoHovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
-                }`}
+                className={`relative object-cover rounded-3xl border-2 border-yellow-500/30 shadow-2xl transition-all duration-700 ${photoHovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
+                  }`}
                 priority
               />
               <Image
@@ -118,9 +138,8 @@ export default function Hero() {
                 alt={`Photo de ${siteConfig.name}`}
                 fill
                 sizes="(max-width: 768px) 288px, 320px"
-                className={`relative object-cover rounded-3xl border-2 border-yellow-500/30 shadow-2xl transition-all duration-700 ${
-                  photoHovered ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                }`}
+                className={`relative object-cover rounded-3xl border-2 border-yellow-500/30 shadow-2xl transition-all duration-700 ${photoHovered ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  }`}
                 priority
               />
             </div>

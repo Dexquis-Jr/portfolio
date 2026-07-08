@@ -7,11 +7,11 @@ export default function Services() {
       title: "Développement Web",
       text: "Applications modernes avec React, Next.js et interfaces performantes.",
     },
-    {
-      icon: "🤖",
-      title: "Solutions IA",
-      text: "Intégration de fonctionnalités intelligentes et automatisées.",
-    },
+    // {
+    //   icon: "🤖",
+    //   title: "Solutions IA",
+    //   text: "Intégration de fonctionnalités intelligentes et automatisées.",
+    // },
     {
       icon: "⚙️",
       title: "Backend & API",
@@ -32,14 +32,14 @@ export default function Services() {
           <h2 className="section-heading">Ce que je propose</h2>
           <p className="section-description">
             Mes services couvrent le développement web complet, le backend,
-            l&apos;IA et les applications mobiles.
+             et les applications mobiles.
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <div key={service.title} className="card-container flex flex-col">
-              <div className="text-6xl mb-6">{service.icon}</div>
+              <div className="text-6xl mb-6">{service.icon}</div> <br /> <hr /> <br />
               <h3 className="text-xl font-bold text-white mb-3">
                 {service.title}
               </h3>

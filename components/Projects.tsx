@@ -15,29 +15,29 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Portfolio Personnel",
-    image: "/images/ph-pro1.png",
+    title: "Freeads",
+    image: "/images/freeads.png",
     description:
-      "Site portfolio moderne avec animations, formulaire de contact et design responsive.",
-    tech: ["Next.js", "React", "Tailwind CSS"],
-    link: siteConfig.github,
+      "Un site qui permet de faire une annonce et gérer ses annonces.",
+    tech: ["Laravel(Full)"],
+    link: "https://freeads.freedev.app",
   },
-  {
-    title: "Application Web Full Stack",
-    image: "/images/ph-pro2.png",
-    description:
-      "Application web complète avec interface utilisateur soignée et backend performant.",
-    tech: ["React", "Node.js", "Java"],
-    link: siteConfig.github,
-  },
-  {
-    title: "Solutions IA & API",
-    image: "/images/ph-pro1.png",
-    description:
-      "Intégration de fonctionnalités intelligentes et APIs sécurisées pour des produits innovants.",
-    tech: ["Python", "FastAPI", "IA"],
-    link: siteConfig.github,
-  },
+  // {
+  //   title: "Application Web Full Stack",
+  //   image: "/images/ph-pro2.png",
+  //   description:
+  //     "Application web complète avec interface utilisateur soignée et backend performant.",
+  //   tech: ["React", "Node.js", "Java"],
+  //   link: siteConfig.github,
+  // },
+  // {
+  //   title: "Solutions IA & API",
+  //   image: "/images/ph-pro1.png",
+  //   description:
+  //     "Intégration de fonctionnalités intelligentes et APIs sécurisées pour des produits innovants.",
+  //   tech: ["Python", "FastAPI", "IA"],
+  //   link: siteConfig.github,
+  // },
 ];
 
 export default function Projects() {
@@ -67,7 +67,7 @@ export default function Projects() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
-              </div>
+              </div><br />
 
               <div className="flex flex-col flex-grow p-6">
                 <h3 className="text-2xl font-bold text-white mb-4">
@@ -82,7 +82,7 @@ export default function Projects() {
                       {t}
                     </span>
                   ))}
-                </div>
+                </div><br />
                 <a
                   href={project.link}
                   target="_blank"

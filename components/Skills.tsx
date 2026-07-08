@@ -7,25 +7,25 @@ export default function Skills() {
       items: [
         "React",
         "Next.js",
+        "Vue.js",
+        "HTML/CSS/Javascript",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
       ],
     },
     {
       title: "Backend",
       items: [
         "Node.js",
-        "Express",
-        "Java",
-        "Spring Boot",
+        "Laravel",
+        "Nest.js",
         "Python",
-        "FastAPI",
+        "Php",
       ],
     },
     {
-      title: "Base de données & Cloud",
-      items: ["MySQL", "PostgreSQL", "MongoDB", "Firebase", "Docker", "AWS"],
+      title: "Base de données",
+      items: ["MySQL", "PostgreSQL", "MongoDB", "Docker"],
     },
   ];
 
@@ -46,7 +46,7 @@ export default function Skills() {
             <div key={skill.title} className="card-container group">
               <h3 className="text-2xl font-bold text-accent group-hover:translate-x-1 transition-transform">
                 {skill.title}
-              </h3>
+              </h3><br /> <hr /> <br />
               <div className="mt-8 flex flex-wrap gap-3">
                 {skill.items.map((item) => (
                   <span key={item} className="tech-badge-lg">

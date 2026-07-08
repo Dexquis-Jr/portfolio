@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 border-t border-yellow-600/20 bg-slate-950/80 backdrop-blur-sm">
+    <footer className="relative z-10 border-t border-yellow-600/20 bg-slate-950/80 backdrop-blur-sm"> <br />
       <div className="container-wrapper py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
@@ -27,8 +27,8 @@ export default function Footer() {
               aria-label="GitHub"
               className="icon-btn"
             >
-              <GitHubIcon />
-            </a>
+              <GitHubIcon /> 
+            </a> |
             <a
               href={siteConfig.linkedin}
               target="_blank"
@@ -37,7 +37,7 @@ export default function Footer() {
               className="icon-btn"
             >
               <LinkedInIcon />
-            </a>
+            </a> |
             <a
               href={`mailto:${siteConfig.email}`}
               aria-label="Email"
@@ -68,7 +68,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </div> <br />
     </footer>
   );
 }

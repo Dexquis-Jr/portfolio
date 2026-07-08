@@ -3,19 +3,19 @@ import AnimatedSection from "@/components/AnimatedSection";
 export default function Experience() {
   const experiences = [
     {
-      date: "2026",
-      title: "Développeur Full Stack",
-      desc: "Création d'applications web modernes avec React, Next.js et backend API performantes.",
+      date: "Janvier 2026 -Juin 2026 (6 mois)",
+      title: "Développeur Full Stack (We.code) | Certification",
+      desc: "Epitech Côte d'ivoire | Abidjan, Cocody.",
     },
     {
-      date: "2025",
-      title: "Solutions IA",
-      desc: "Développement de fonctionnalités intelligentes avec Python, FastAPI et intégration IA.",
+      date: "2023 - 2024",
+      title: "2e année en Informatique option génie logiciel",
+      desc: "UTA (Université de Technologie d'Abidjan).",
     },
     {
-      date: "2024",
-      title: "Projets Web & Mobile",
-      desc: "Conception d'applications mobiles et plateformes web hautes performances.",
+      date: "2020 - 2021",
+      title: "Baccalauréat Série D",
+      desc: "CALE (Collège ALbert Einstein) Yamoussoukro.",
     },
   ];
 

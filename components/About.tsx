@@ -26,7 +26,7 @@ export default function About() {
 
             <p className="text-lg leading-8 text-muted">
               J&apos;interviens sur le frontend avec React et Next.js, et sur le
-              backend avec Java, Spring Boot, Node.js et API modernes. Mon
+              backend avec Laravel, Nest.js, Node.js et API modernes. Mon
               objectif est de transformer des idées ambitieuses en produits
               fiables, rapides et agréables à utiliser.
             </p>
