@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CvModal from "@/components/CvModal";
 import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/SocialIcons";
@@ -10,6 +11,7 @@ const HERO_TITLE = siteConfig.name;
 export default function Hero() {
   const [display, setDisplay] = useState("");
   const [photoHovered, setPhotoHovered] = useState(false);
+  const [cvOpen, setCvOpen] = useState(false);
 
   useEffect(() => {
     const fullText = HERO_TITLE;
@@ -77,13 +79,13 @@ export default function Hero() {
                 Voir mes projets
               </a>
 
-              <a
-                href={siteConfig.cvPath}
-                download
+              <button
+                type="button"
+                onClick={() => setCvOpen(true)}
                 className="btn-secondary text-center"
               >
                 Télécharger CV
-              </a>
+              </button>
             </div> <br />
 
             <div className="flex gap-4 pt-4">
@@ -146,6 +148,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
     </section>
   );
 }

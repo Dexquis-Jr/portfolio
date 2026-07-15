@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { siteConfig } from "@/lib/site";
+import CvModal from "@/components/CvModal";
 
 const navLinks = [
   { label: "À propos", href: "#about" },
@@ -16,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [cvOpen, setCvOpen] = useState(false);
 
   useEffect(() => {
     const sections = navLinks
@@ -61,23 +63,22 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition ${
-                activeSection === link.href
-                  ? "text-accent"
-                  : "text-gray-300 hover:text-accent"
-              }`}
+              className={`text-sm font-medium transition ${activeSection === link.href
+                ? "text-accent"
+                : "text-gray-300 hover:text-accent"
+                }`}
             >
               {link.label}
             </a>
           ))}
 
-          <a
-            href={siteConfig.cvPath}
-            download
+          <button
+            type="button"
+            onClick={() => setCvOpen(true)}
             className="btn-primary text-sm px-6 py-2"
           >
             CV
-          </a>
+          </button>
         </div>
 
         <button
@@ -99,26 +100,29 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`block rounded-lg border px-4 py-3 text-sm font-medium transition ${
-                  activeSection === link.href
-                    ? "border-accent text-accent bg-accent/10"
-                    : "border-yellow-600/20 bg-slate-900/50 text-gray-200 hover:border-accent hover:text-accent hover:bg-accent/5"
-                }`}
+                className={`block rounded-lg border px-4 py-3 text-sm font-medium transition ${activeSection === link.href
+                  ? "border-accent text-accent bg-accent/10"
+                  : "border-yellow-600/20 bg-slate-900/50 text-gray-200 hover:border-accent hover:text-accent hover:bg-accent/5"
+                  }`}
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href={siteConfig.cvPath}
-              download
-              onClick={() => setOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                setCvOpen(true);
+              }}
               className="btn-primary w-full text-center"
             >
-              Télécharger CV
-            </a>
+              CV
+            </button>
           </div>
         </div>
       )}
+      <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
     </nav>
   );
 }
+
